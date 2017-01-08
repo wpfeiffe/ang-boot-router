@@ -1,0 +1,32 @@
+<div class="card" *ngIf="loggedIn()">
+  <h3 class="card-header">Logout</h3>
+  <div class="card-block">
+
+    <button type="button" class="btn btn-danger btn-sm" (click)="logout()"><fa name="sign-out"></fa>Log Out</button>
+    <button type="button" class="btn btn-success btn-sm" (click)="logUser()"><fa name="user"></fa>Log User Info</button>
+  </div>
+</div>
+
+<div class="card" *ngIf="!loggedIn()">
+  <h3 class="card-header">Login</h3>
+  <div class="card-block">
+    <form #f="ngForm"
+          (ngSubmit)="doLogin(f.value)">
+      <div class="form-group row">
+        <label for="username" class="col-2 col-form-label">User Name</label>
+        <div class="col-10"><input type="text" id="username" placeholder="username" name="username" [(ngModel)]="loginUser.username"></div>
+      </div>
+      <div class="form-group row">
+        <label for="password" class="col-2 col-form-label">Password</label>
+        <div class="col-10"><input type="password" id="password" placeholder="password" name="password" [(ngModel)]="loginUser.password"></div>
+      </div>
+
+      <button type="submit" class="btn btn-primary"><fa name="sign-in"></fa>Login</button>
+    </form>
+    <p></p>
+    <div *ngIf="message != ''">
+      <ngb-alert [type]="'success'" (close)="closeAlert(alert)">{{message}}</ngb-alert>
+    </div>
+
+  </div>
+</div>
