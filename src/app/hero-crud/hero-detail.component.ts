@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
-import { Hero } from '../services/hero';
-import { HeroService } from '../services/hero.service';
+import { Hero } from './hero';
+import { HeroService } from './hero.service';
 import 'rxjs/add/operator/switchMap';
+import { Location }                 from '@angular/common';
+
 
 @Component({
   selector: 'app-hero-detail',
@@ -12,15 +14,24 @@ import 'rxjs/add/operator/switchMap';
 export class HeroDetailComponent implements OnInit {
 
   id: string;
-  hero: Hero;
+  hero: Hero = {id: 0, name: '(None)'};
 
-  constructor(private route: ActivatedRoute, private heroService: HeroService) {
+  constructor(private route: ActivatedRoute, private heroService: HeroService, private location: Location) {
     route.params.subscribe(params => {this.id = params['id'];});
   }
 
   ngOnInit() {
     this.heroService.getHero(Number(this.id))
          .then(hero => this.hero = hero);
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
+
+  save(): void {
+    this.heroService.update(this.hero)
+        .then(() => this.goBack());
   }
 
 }

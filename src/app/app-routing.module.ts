@@ -17,6 +17,10 @@ const routes: Routes = [
   {
     path: 'formplay',
     loadChildren: './form-play/form-play.module#FormPlayModule'
+  },
+  {
+    path: 'login',
+    loadChildren: './jwt-login/jwt-login.module#JwtLoginModule'
   }
 ];
 

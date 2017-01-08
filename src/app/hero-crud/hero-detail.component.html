@@ -1,6 +1,18 @@
 <div class="card">
   <h3 class="card-header">Hero Detail</h3>
   <div class="card-block">
-    <div class="card-text">{{id}} {{hero?.name}}</div>
+    <form #f="ngForm"
+          (ngSubmit)="onSubmit(f.value)">
+      <div class="form-group row">
+        <label for="heroId" class="col-2 col-form-label">Hero ID</label>
+        <div class="col-10"><input type="text" id="heroId" placeholder="id" name="heroId" [(ngModel)]="hero.id"></div>
+      </div>
+      <div class="form-group row">
+        <label for="heroName" class="col-2 col-form-label">Last Name</label>
+        <div class="col-10"><input type="text" id="heroName" placeholder="name" name="heroName" [(ngModel)]="hero.name"></div>
+      </div>
+      <button type="button" class="btn btn-primary btn-sm" (click)="save()"><fa name="database"></fa>Save</button>
+      <button type="button" class="btn btn-danger btn-sm" (click)="goBack()"><fa name="chevron-left"></fa>Cancel</button>
+    </form>
   </div>
 </div>

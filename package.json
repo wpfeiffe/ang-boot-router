@@ -23,6 +23,7 @@
     "@angular/router": "^3.3.1",
     "@ng-bootstrap/ng-bootstrap": "^1.0.0-alpha.16",
     "angular2-font-awesome": "^1.0.0-alpha.1-4",
+    "angular2-jwt": "^0.1.27",
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
     "rxjs": "^5.0.1",
