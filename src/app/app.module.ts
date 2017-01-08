@@ -12,7 +12,7 @@ import { MainNavComponent } from './main-nav/main-nav.component';
 @NgModule({
   declarations: [
     AppComponent,
-    MainNavComponent
+    MainNavComponent,
   ],
   imports: [
     BrowserModule,

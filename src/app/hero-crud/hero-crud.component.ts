@@ -10,30 +10,32 @@ import {Hero} from "../services/hero";
 })
 export class HeroCrudComponent implements OnInit {
 
-  title : string = "Component 1";
-  message : string = "This is the first component";
-  heroes : Hero[] = [];
+    title: string = "Heroes";
+    message: string = "Heroes Listing";
+    heroes: Hero[] = [];
 
-  constructor(
-      private heroService: HeroService,
-  ){}
+    constructor(private heroService: HeroService,) {
+    }
 
-  ngOnInit() {
+    ngOnInit() {
         this.heroService.getHeroes()
             .then(heroes => this.heroes = heroes);
 
-  }
+    }
 
-  deleteHero(heroId: number): void {
-    this.heroService
-        .delete(heroId)
-        .then(() => {
-          for (var item in this.heroes) {
-            if (this.heroes[item].id == heroId) {
-              this.heroes.splice(Number(item), 1)
-            }
-          }
-        });
-  }
+    deleteHero(heroId: number): void {
+        this.heroService
+            .delete(heroId)  // delete the selected hero from server
+            .then(() => {
+                for (var item in this.heroes) {
+                    if (this.heroes[item].id == heroId) {   // if server delete worked and we found the selected hero
+                        this.heroes.splice(Number(item), 1)   // remove from heroes list
+                    }
+                }
+            });
+    }
 
+    viewHero(heroId: number): void {
+        console.log("You picked hero: " + heroId)
+    }
 }
