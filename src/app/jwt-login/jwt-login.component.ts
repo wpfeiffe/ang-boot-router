@@ -28,6 +28,7 @@ export class JwtLoginComponent implements OnInit {
         .then(function(tokenValue){
             console.log(`The token value is ${tokenValue}`);
             localStorage.setItem("id_token", tokenValue);
+            this.logUser();
         });
   }
 

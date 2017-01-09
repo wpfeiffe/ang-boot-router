@@ -33,6 +33,16 @@ export class HeroService {
         .then(heroes => heroes.find(hero => hero.id === id));
   }
 
+  getSingleHero(id: number): Promise<Hero> {
+    const url = `${this.heroesUrl}/${id}`;
+
+    return this.authHttp
+        .get(url, {headers: this.headers})
+        .toPromise()
+        .then((res) => res.json())
+        .catch(this.handleError);
+  }
+
   private headers = new Headers({'Content-Type': 'application/json'});
 
   update(hero: Hero): Promise<Hero> {
