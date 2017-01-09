@@ -1,5 +1,17 @@
 # AngBootRouter
 
+This project was created for me to play with the --routing option in 
+angular-cli.  I wanted to get module routing working.  I also wanted 
+integrate bootstrap 4 in as well.  Finally, I wanted to authenticate 
+with JWT approach.  The app goes against my [hero-service](https://github.com/wpfeiffe/hero-service) spring 
+boot app both for Hero data and JWT login services.  I will continue
+to add in angular functionality as a learning exercise.
+
+
+---
+angular-cli boilerblate below
+
+---
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.24.
 
 ## Development server
