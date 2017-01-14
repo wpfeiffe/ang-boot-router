@@ -4,6 +4,7 @@ import { FormPlayRoutingModule } from './form-play-routing.module';
 import { FormPlayComponent } from './form-play.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { CustomCounterComponent } from '../custom-counter/custom-counter.component';
 
 @NgModule({
   imports: [
@@ -13,6 +14,6 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     ReactiveFormsModule,
     NgbModule
   ],
-  declarations: [FormPlayComponent]
+  declarations: [FormPlayComponent, CustomCounterComponent]
 })
 export class FormPlayModule { }

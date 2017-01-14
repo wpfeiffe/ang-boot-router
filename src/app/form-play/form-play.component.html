@@ -29,5 +29,11 @@
       <ngb-alert [type]="'success'" (close)="closeAlert(alert)">{{message}}</ngb-alert>
     </div>
 
+    <hr>
+    <br>
+    <custom-counter [(counter)]="counterValue"></custom-counter>
+    <p><code>counterValue = {{counterValue}}</code></p>
+    <hr>
+
   </div>
 </div>

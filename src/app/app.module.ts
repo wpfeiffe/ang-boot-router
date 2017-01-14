@@ -8,6 +8,7 @@ import { Angular2FontAwesomeModule } from 'angular2-font-awesome/angular2-font-a
 
 import { AppComponent } from './app.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
+import { CustomCounterComponent } from './custom-counter/custom-counter.component';
 
 @NgModule({
   declarations: [

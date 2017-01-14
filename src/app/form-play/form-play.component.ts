@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-form-play',
@@ -9,6 +9,7 @@ export class FormPlayComponent implements OnInit {
 
   title:string = "Form Play";
   message:string = "";
+  counterValue:number = 5;
 
   constructor() { }
 

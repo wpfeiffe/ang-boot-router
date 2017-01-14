@@ -7,6 +7,8 @@ with JWT approach.  The app goes against my [hero-service](https://github.com/wp
 boot app both for Hero data and JWT login services.  I will continue
 to add in angular functionality as a learning exercise.
 
+2017-01-13
+Added Input / Output binding counter component to play with 2-way binding
 
 ---
 angular-cli boilerblate below
