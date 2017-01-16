@@ -21,6 +21,10 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: './jwt-login/jwt-login.module#JwtLoginModule'
+  },
+  {
+    path: 'employees',
+    loadChildren: './employee-grid/employee-grid.module#EmployeeGridModule'
   }
 ];
 
