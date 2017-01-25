@@ -23,6 +23,10 @@ const routes: Routes = [
     loadChildren: './jwt-login/jwt-login.module#JwtLoginModule'
   },
   {
+    path: 'primeng',
+    loadChildren: './primeng-examples/primeng-examples.module/#PrimengExamplesModule'
+  },
+  {
     path: 'employees',
     loadChildren: './employee-grid/employee-grid.module#EmployeeGridModule'
   }

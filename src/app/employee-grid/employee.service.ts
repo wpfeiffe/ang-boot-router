@@ -12,11 +12,11 @@ export class EmployeeService {
     // private employeesUrl = 'app/employees';  // URL to web api
     private employeesUrl = 'http://localhost:8080/employees';  // URL to web api
 
-    constructor(private http: Http, private authHttp: AuthHttp) { }
+    constructor(private http: Http) { }
 
     getEmployeees(): Promise<Employee[]> {
         //return this.http.get(this.employeesUrl,  new RequestOptions({headers: new Headers({'Content-Type': 'application/json', "Authorization": localStorage.getItem('id_token')})}))
-        return this.authHttp.get(this.employeesUrl)
+        return this.http.get(this.employeesUrl)
             .toPromise()
             //.then(response => response.json().data as Employee[])
             .then(response => response.json() as Employee[])
@@ -36,7 +36,7 @@ export class EmployeeService {
     getSingleEmployee(id: number): Promise<Employee> {
         const url = `${this.employeesUrl}/${id}`;
 
-        return this.authHttp
+        return this.http
             .get(url, {headers: this.headers})
             .toPromise()
             .then((res) => res.json())
@@ -48,7 +48,7 @@ export class EmployeeService {
     update(employee: Employee): Promise<Employee> {
         const url = `${this.employeesUrl}/${employee.id}`;
 
-        return this.authHttp
+        return this.http
             .put(url, JSON.stringify(employee), {headers: this.headers})
             .toPromise()
             .then(() => employee)
@@ -56,7 +56,7 @@ export class EmployeeService {
     }
 
     create(name: string): Promise<Employee> {
-        return this.authHttp
+        return this.http
             .post(this.employeesUrl, JSON.stringify({name: name}), {headers: this.headers})
             .toPromise()
             //            .then(res => res.json().data)
@@ -66,7 +66,7 @@ export class EmployeeService {
 
     delete(id: number): Promise<void> {
         const url = `${this.employeesUrl}/${id}`;
-        return this.authHttp.delete(url, {headers: this.headers})
+        return this.http.delete(url, {headers: this.headers})
             .toPromise()
             .then(() => null)
             .catch(this.handleError);
