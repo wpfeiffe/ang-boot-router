@@ -1,3 +1,6 @@
-<p>
-  primeng-tree works!
-</p>
+<div class="card">
+  <h3 class="card-header">PrimeNG TreeView</h3>
+  <div class="card-block">
+    <p-tree [value]="data" selectionMode="single" [(selection)]="selectedFiles" (onNodeSelect)="nodeSelect($event)"></p-tree>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataTableModule } from 'angular2-datatable'
-import { PaginationModule } from 'ng2-bootstrap/ng2-bootstrap';
-import { TabsModule } from 'ng2-bootstrap/ng2-bootstrap';
+import { PaginationModule } from 'ng2-bootstrap';
+import { TabsModule } from 'ng2-bootstrap';
 import { Ng2TableModule } from 'ng2-table/ng2-table';
 import {Http} from "@angular/http";
 

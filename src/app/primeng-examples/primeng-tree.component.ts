@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { TreeModule, TreeNode } from 'primeng/primeng'
+import {Http} from "@angular/http";
+import {EmployeeService} from "../employee-grid/employee.service";
+import {Employee} from "../employee-grid/employee";
 
 @Component({
   selector: 'app-primeng-tree',
@@ -7,9 +11,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrimengTreeComponent implements OnInit {
 
-  constructor() { }
+  data: TreeNode[];
+
+  employeeData: TreeNode[];
+
+  selectedNodes: TreeNode[];
+
+  constructor(private http: Http, private employeeService: EmployeeService) { }
 
   ngOnInit() {
+    this.getTreeData().then(data => this.data = data);
   }
+
+  nodeSelect(event) {
+    //event.node = selected node
+  }
+
+  getTreeData() {
+    return this.http.get('/app/primeng-examples/files.json')
+        .toPromise()
+        .then(res => <TreeNode[]> res.json().data)
+        .then(data => { return data; });
+  }
+
+  getEmployeeData(){
+    this.employeeService.getEmployeees()
+        .then(function (employees: Employee[]){
+
+          this.employees = employees;
+
+          // for (let employee: Employee in employees)
+          // {
+          //
+          // }
+        });
+
+  }
+
+  buildCompanies() {}
 
 }
