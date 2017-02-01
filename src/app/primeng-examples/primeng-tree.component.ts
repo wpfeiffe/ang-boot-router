@@ -20,7 +20,7 @@ export class PrimengTreeComponent implements OnInit {
   constructor(private http: Http, private employeeService: EmployeeService) { }
 
   ngOnInit() {
-    this.getTreeData().then(data => this.data = data);
+    this.getCompanyTreeData().then(data => this.data = data);
   }
 
   nodeSelect(event) {
@@ -34,20 +34,10 @@ export class PrimengTreeComponent implements OnInit {
         .then(data => { return data; });
   }
 
-  getEmployeeData(){
-    this.employeeService.getEmployeees()
-        .then(function (employees: Employee[]){
-
-          this.employees = employees;
-
-          // for (let employee: Employee in employees)
-          // {
-          //
-          // }
-        });
-
+  getCompanyTreeData() {
+    return this.http.get('http://localhost:8080/companies/treenodes')
+        .toPromise()
+        .then(res => <TreeNode[]> res.json())
+        .then(data => { return data; });
   }
-
-  buildCompanies() {}
-
 }

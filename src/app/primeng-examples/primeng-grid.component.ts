@@ -32,5 +32,4 @@ export class PrimengGridComponent implements OnInit {
     console.log(event);
     this.selectionMessage = `No selection`
   }
-
 }

@@ -1,0 +1,10 @@
+<div class="card">
+  <h3 class="card-header">Web Socket Counter</h3>
+  <div class="card-block">
+    Counter Value is: {{counter}}
+    <p></p>
+    <button class="btn btn-primary" type="button" (click)="subscribe($event)">Subscribe to WebSocket</button>
+    <button class="btn btn-success" type="button" (click)="enableCounter()">Enable Counter</button>
+    <button class="btn btn-warning" type="button" (click)="disableCounter()">Disable Counter</button>
+  </div>
+</div>
