@@ -31,7 +31,7 @@ const routes: Routes = [
     loadChildren: './employee-grid/employee-grid.module#EmployeeGridModule'
   },
   {
-    path: 'wscounter',
+    path: 'ws',
     loadChildren: './websocket-counter/websocket-counter.module#WebsocketCounterModule'
   }
 ];

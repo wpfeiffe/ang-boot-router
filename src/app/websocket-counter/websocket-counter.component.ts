@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { $WebSocket } from 'angular2-websocket/angular2-websocket'
+import { $WebSocket, WebSocketSendMode } from 'angular2-websocket/angular2-websocket'
 import { Http } from '@angular/http'
 import 'rxjs/add/operator/toPromise';
 
@@ -14,6 +14,7 @@ export class WebsocketCounterComponent implements OnInit {
   status: string = "";
   baseRestUrl: string  = "http://localhost:8080/counterctl/";
   ws: $WebSocket;
+  wssend: $WebSocket;
 
   constructor(private http: Http) {
     this.ws = new $WebSocket("ws://localhost:8080/counter");
@@ -54,6 +55,25 @@ export class WebsocketCounterComponent implements OnInit {
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);
+  }
+
+  sendMessage() {
+
+    // this.wssend = new $WebSocket("ws://localhost:8080/counter");
+    // this.wssend.send("Message from Angular2")
+    // this.wssend.send("CLOSE")
+    this.ws.send("Message from Angular2")
+        .subscribe(
+        (msg)=> {
+          console.log("next", msg.data);
+        },
+        (msg)=> {
+          console.log("error", msg);
+        },
+        ()=> {
+          console.log("complete");
+        }
+    );
   }
 
 

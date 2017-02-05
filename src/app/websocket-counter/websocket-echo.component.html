@@ -1,0 +1,16 @@
+<div class="card">
+  <h3 class="card-header">Web Socket Echo</h3>
+  <div class="card-block">
+    <div class="mt-1">
+      <label for="message-out">Enter a message to send</label>
+      <input id="message-out" type="text" class="form-control" placeholder="message"
+             [(ngModel)]="messageOut"/>
+    </div>
+    <div class="mt-2 mb-2">
+      <button class="btn btn-primary" type="button" (click)="sendMessage()">Send Message</button>
+    </div>
+
+    <div class="alert alert-info">Received Message: {{messageIn}}</div>
+  </div>
+</div>
+
