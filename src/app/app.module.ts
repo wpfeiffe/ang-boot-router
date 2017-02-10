@@ -9,6 +9,9 @@ import { Angular2FontAwesomeModule } from 'angular2-font-awesome/angular2-font-a
 import { AppComponent } from './app.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { CustomCounterComponent } from './custom-counter/custom-counter.component';
+import { ConfigService } from './stomp/services/config.service';
+import { ToastModule } from 'ng2-toastr/ng2-toastr';
+
 
 @NgModule({
   declarations: [
@@ -21,9 +24,10 @@ import { CustomCounterComponent } from './custom-counter/custom-counter.componen
     HttpModule,
     AppRoutingModule,
     NgbModule.forRoot(),
-    Angular2FontAwesomeModule
+    Angular2FontAwesomeModule,
+    ToastModule.forRoot()
   ],
-  providers: [],
+  providers: [ConfigService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,6 +5,7 @@ import { FormPlayComponent } from './form-play.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { CustomCounterComponent } from '../custom-counter/custom-counter.component';
+import { ToastModule } from 'ng2-toastr/ng2-toastr';
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { CustomCounterComponent } from '../custom-counter/custom-counter.compone
     FormPlayRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    ToastModule.forRoot()
   ],
   declarations: [FormPlayComponent, CustomCounterComponent]
 })
