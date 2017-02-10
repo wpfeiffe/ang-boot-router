@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { $WebSocket, WebSocketSendMode } from 'angular2-websocket/angular2-websocket'
+import { $WebSocket, WebSocketSendMode } from './angular2-websocket'
 import { Http } from '@angular/http'
 import 'rxjs/add/operator/toPromise';
 
@@ -25,22 +25,13 @@ export class WebsocketEchoComponent implements OnInit {
             this.ws = new $WebSocket("ws://localhost:8080/wsecho");
         }
         this.sendMessageWithArg("Hello");
-        this.ws.onMessage(
-            (msg: MessageEvent)=> {
-                this.messageIn = JSON.parse(msg.data).value;
+        this.ws.getDataStream().subscribe(
+            res => {
+                this.messageIn = JSON.parse(res.data).value;
             },
-            {autoApply: false}
+            function(e) { console.log('Error: ' + e.message); },
+            function() { console.log('Completed'); }
         );
-        // this.ws.getDataStream().subscribe(
-        //     res => {
-        //         this.messageIn = JSON.parse(res.data).value;
-        //     },
-        //     function(e) { console.log('Error: ' + e.message); },
-        //     function() { console.log('Completed'); }
-        // );
-        this.sendMessageWithArg("Bill One");
-        this.sendMessageWithArg("Bill Two");
-        this.sendMessageWithArg("Bill Three");
     }
 
     private handleError(error: any): Promise<any> {
@@ -66,6 +57,5 @@ export class WebsocketEchoComponent implements OnInit {
                 }
             );
     }
-
 
 }
