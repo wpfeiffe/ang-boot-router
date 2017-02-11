@@ -12,12 +12,12 @@ export class WebsocketCounterComponent implements OnInit {
 
   counter: string = 'not known';
   status: string = "";
-  baseRestUrl: string  = "http://localhost:8080/counterctl/";
+  baseRestUrl: string  = `http://${window.location.hostname}:8080/counterctl/`;
   ws: $WebSocket;
   wssend: $WebSocket;
 
   constructor(private http: Http) {
-    this.ws = new $WebSocket("ws://localhost:8080/counter");
+    this.ws = new $WebSocket(`ws://${window.location.hostname}:8080/counter`);
   }
 
   ngOnInit() {
@@ -25,7 +25,7 @@ export class WebsocketCounterComponent implements OnInit {
 
   subscribe($event) {
     console.log("trying to subscribe to ws");
-    this.ws = new $WebSocket("ws://localhost:8080/counter");
+    this.ws = new $WebSocket(`ws://${window.location.hostname}:8080/counter`);
     this.ws.send("Hello");
     this.ws.getDataStream().subscribe(
         res => {
@@ -59,7 +59,7 @@ export class WebsocketCounterComponent implements OnInit {
 
   sendMessage() {
 
-    //this.wssend = new $WebSocket("ws://localhost:8080/counter");
+    //this.wssend = new $WebSocket(`ws://${window.location.hostname}:8080/counter`);
     //this.wssend.send("Message from Angular2")
     //this.wssend.send("CLOSE")
     this.ws.send("Message from Angular2")

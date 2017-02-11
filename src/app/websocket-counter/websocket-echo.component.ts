@@ -22,7 +22,7 @@ export class WebsocketEchoComponent implements OnInit {
 
         if (this.ws == null)
         {
-            this.ws = new $WebSocket("ws://localhost:8080/wsecho");
+            this.ws = new $WebSocket(`ws://${window.location.hostname}:8080/wsecho`);
         }
         this.sendMessageWithArg("Hello");
         this.ws.getDataStream().subscribe(

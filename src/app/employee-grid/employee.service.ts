@@ -10,7 +10,7 @@ import { Employee } from './employee';
 export class EmployeeService {
 
     // private employeesUrl = 'app/employees';  // URL to web api
-    private employeesUrl = 'http://localhost:8080/employees';  // URL to web api
+    private employeesUrl = `http://${window.location.hostname}:8080/employees`;  // URL to web api
 
     constructor(private http: Http) { }
 

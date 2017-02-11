@@ -31,6 +31,7 @@ export class AppComponent implements OnInit, OnDestroy  {
     this.configService.getConfig('app/stomp/config/config.json').then(
         config => {
           // ... then pass it to (and connect) STOMP:
+          config.host = window.location.hostname;
           this.stompService.configure(config);
           this.stompService.try_connect().then(this.onConnect);
         }

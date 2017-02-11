@@ -35,7 +35,7 @@ export class PrimengTreeComponent implements OnInit {
   }
 
   getCompanyTreeData() {
-    return this.http.get('http://localhost:8080/companies/treenodes')
+    return this.http.get(`http://${window.location.hostname}:8080/companies/treenodes`)
         .toPromise()
         .then(res => <TreeNode[]> res.json())
         .then(data => { return data; });

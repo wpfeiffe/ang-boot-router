@@ -10,7 +10,7 @@ import { Hero } from './hero';
 export class HeroService {
 
   // private heroesUrl = 'app/heroes';  // URL to web api
-  private heroesUrl = 'http://localhost:8080/heroes';  // URL to web api
+  private heroesUrl = `http://${window.location.hostname}:8080/heroes`;  // URL to web api
 
   constructor(private http: Http, private authHttp: AuthHttp) { }
 

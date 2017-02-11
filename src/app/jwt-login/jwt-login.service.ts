@@ -8,8 +8,8 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class JwtLoginService {
 
-  private authUrl = 'http://localhost:8080/auth';  // URL to web api
-  private userUrl = 'http://localhost:8080/user';  // URL to web api
+  private authUrl = `http://${window.location.hostname}:8080/auth`;  // URL to web api
+  private userUrl = `http://${window.location.hostname}:8080/user`;  // URL to web api
   private headers = new Headers({'Content-Type': 'application/json; charset=utf-8'});
   private authenticated: boolean = false;
 
