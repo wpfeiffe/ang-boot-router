@@ -53,7 +53,7 @@ export class EmpGridBoot4Component implements OnInit {
 
   public ngOnInit():void {
     this.onChangeTable(this.config);
-    this.http.get(`http://${window.location.host}:8080/employees`)
+    this.http.get(`http://${window.location.hostname}:8080/employees`)
         .subscribe((data) => {
           setTimeout(() => {
             this.data = data.json();
